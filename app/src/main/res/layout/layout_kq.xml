@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <!--    空气指数-->
+    <TextView
+        style="@style/jintian_bujv"
+        android:text="空气指数"
+        android:textColor="@color/hei"
+        android:textSize="18dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginTop="15dp">
+            <ImageView
+                style="@style/jintian_bujv"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/kq"
+                android:layout_marginLeft="20dp"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginTop="15dp"
+            android:orientation="vertical"
+            android:gravity="center_vertical">
+            <TextView
+                android:id="@+id/day_txt_pm10"
+                style="@style/jintian_bujv"
+                android:text="风向：西南风"
+                android:layout_gravity="center_vertical"
+                android:textSize="16dp"
+                android:layout_marginLeft="15dp"/>
+            <TextView
+                android:id="@+id/day_txt_pm2.5"
+                style="@style/jintian_bujv"
+                android:text="风力：3级"
+                android:layout_gravity="center_vertical"
+                android:textSize="16dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="15dp"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

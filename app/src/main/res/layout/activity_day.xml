@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".DayActivity"
+    android:orientation="vertical">
+
+    <include layout="@layout/layout_meau" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="10"
+        android:scrollbars="none">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <!--    概况-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:background="@drawable/biankuangjianbian"
+                android:layout_margin="15dp">
+
+                <!--        顶部-->
+                <TextView
+                    android:id="@+id/day_txt_dz"
+                    style="@style/jintian_bujv"
+                    android:text="梅河口"
+                    android:textColor="@color/bai"
+                    android:textStyle="bold"
+                    android:textSize="18dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="20dp"
+                    />
+                <ImageView
+                    android:layout_width="14dp"
+                    android:layout_height="18dp"
+                    android:layout_marginTop="23dp"
+                    android:background="@drawable/zbb"
+                    android:layout_toEndOf="@id/day_txt_dz"
+                    android:layout_marginLeft="5dp" />
+                <TextView
+                    android:id="@+id/day_txt_riqi"
+                    style="@style/jintian_bujv"
+                    android:text="06月11日星期四"
+                    android:textColor="@color/bai"
+                    android:textSize="14dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignBottom="@id/day_txt_dz"
+                    android:layout_marginRight="20dp"/>
+
+                <!--        中间-->
+                <RelativeLayout
+                    android:layout_width="180dp"
+                    android:layout_height="85dp"
+                    android:orientation="horizontal"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="48dp">
+                    <TextView
+                        android:id="@+id/day_txt_wd"
+                        style="@style/jintian_bujv"
+                        android:text="27"
+                        android:textSize="64dp"
+
+                        android:textColor="@color/bai" />
+                    <TextView
+                        style="@style/jintian_bujv"
+                        android:text="℃"
+                        android:textColor="@color/bai"
+                        android:textSize="20dp"
+                        android:layout_toEndOf="@id/day_txt_wd"
+                        android:layout_alignTop="@id/day_txt_wd"
+                        android:layout_marginTop="24dp"/>
+                    <RelativeLayout
+                        android:id="@+id/tq"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignTop="@id/day_txt_wd"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="15dp">
+                        <ImageView
+                            android:id="@+id/day_img_tq"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:src="@drawable/clear_daytime"
+                            android:padding="8dp"
+                            android:layout_centerVertical="true" />
+                        <TextView
+                            android:id="@+id/day_txt_tq"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="晴"
+                            android:textColor="@color/bai"
+                            android:layout_centerVertical="true"
+                            android:layout_toEndOf="@id/day_img_tq"/>
+                    </RelativeLayout>
+                    <LinearLayout
+                        style="@style/jintian_bujv"
+                        android:layout_alignLeft="@id/tq"
+                        android:layout_below="@id/tq"
+                        android:layout_alignParentBottom="true">
+                        <TextView
+                            android:id="@+id/day_txt_wd_zg"
+                            style="@style/jintian_bujv"
+                            android:text="29 ℃"
+                            android:textColor="@color/bai"
+                            android:textSize="14dp"/>
+                        <TextView
+                            style="@style/jintian_bujv"
+                            android:text=" / "
+                            android:textColor="@color/tmbai"
+                            android:textSize="14dp"/>
+                        <TextView
+                            android:id="@+id/day_txt_wd_zd"
+                            style="@style/jintian_bujv"
+                            android:text="16 ℃"
+                            android:textColor="@color/tmbai"
+                            android:textSize="14dp"/>
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <!--        底部-->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/router"
+                    android:layout_centerHorizontal="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="20dp"
+                    android:padding="2dp">
+                    <TextView
+                        android:id="@+id/day_txt_kqzl"
+                        style="@style/jintian_bujv"
+                        android:text="空气质量：64  良"
+                        android:textColor="@color/bai"
+                        android:layout_marginLeft="5dp"/>
+                    <View
+                        android:id="@+id/day_view_colordian"
+                        android:layout_width="8dp"
+                        android:layout_height="8dp"
+                        android:background="@drawable/circle_yellow"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="3dp"
+                        android:layout_marginRight="5dp"
+                        />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <!--    空气指数-->
+            <include
+                android:visibility="gone"
+                android:id="@+id/inclue_kq"
+                layout="@layout/layout_kq"/>
+
+            <!--    风力风向-->
+            <TextView
+                style="@style/jintian_bujv"
+                android:text="风力风向"
+                android:textColor="@color/hei"
+                android:textSize="18dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:orientation="horizontal">
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_marginTop="15dp">
+                    <ImageView
+                        style="@style/jintian_bujv"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/fl"
+                        android:layout_marginLeft="20dp"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_marginTop="15dp"
+                    android:orientation="vertical"
+                    android:gravity="center_vertical">
+                    <TextView
+                        android:id="@+id/day_txt_fx"
+                        style="@style/jintian_bujv"
+                        android:text="风向：西南风"
+                        android:layout_gravity="center_vertical"
+                        android:textSize="16dp"
+                        android:layout_marginLeft="15dp"/>
+                    <TextView
+                        android:id="@+id/day_txt_fl"
+                        style="@style/jintian_bujv"
+                        android:text="风力：3级"
+                        android:layout_gravity="center_vertical"
+                        android:textSize="16dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="15dp"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!--    日出日落-->
+            <TextView
+                style="@style/jintian_bujv"
+                android:text="日出日落"
+                android:textColor="@color/hei"
+                android:textSize="18dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal">
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+                    <ImageView
+                        style="@style/jintian_bujv"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/sunrise"
+                        android:layout_marginLeft="20dp"/>
+                    <TextView
+                        android:id="@+id/day_txt_sunrise"
+                        style="@style/jintian_bujv"
+                        android:text="日出时间：3：25"
+                        android:layout_gravity="center_vertical"
+                        android:textSize="16dp"
+                        android:layout_marginLeft="15dp"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="right">
+                    <ImageView
+                        style="@style/jintian_bujv"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/sunset"
+                        android:layout_marginRight="15dp"/>
+                    <TextView
+                        android:id="@+id/day_txt_sunset"
+                        style="@style/jintian_bujv"
+                        android:text="日出时间：3：25"
+                        android:layout_gravity="center_vertical"
+                        android:textSize="16dp"
+                        android:layout_marginRight="20dp"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="160dp"/>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
