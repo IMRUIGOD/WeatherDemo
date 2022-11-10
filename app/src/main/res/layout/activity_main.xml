@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:background="#ccc"
+    android:id="@+id/main"
+    android:scrollbars="none">
+<!--    滑动组件-->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+<!--内部组件-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+<!--今日天气-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_marginTop="50dp"
+                >
+                <!--        地址-->
+                <TextView
+                    android:id="@+id/txt_dz"
+                    style="@style/jintian_bujv"
+                    android:text="梅河口"
+                    android:textSize="18dp"
+                    android:textColor="@color/bai"
+                    android:layout_marginRight="5dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"/>
+
+                <ImageView
+                    android:layout_width="14dp"
+                    android:layout_height="18dp"
+                    android:layout_marginTop="2dp"
+                    android:background="@drawable/zbb"
+                    android:layout_toEndOf="@id/txt_dz"
+                    android:layout_alignTop="@id/txt_dz"/>
+                <!--        温度-->
+                <TextView
+                    android:id="@+id/txt_wd"
+                    style="@style/jintian_bujv"
+                    android:text="27"
+                    android:textSize="96dp"
+                    android:layout_below="@id/txt_dz"
+                    android:layout_centerHorizontal="true"
+                    android:textColor="@color/bai"
+                    android:layout_marginTop="-15dp"/>
+                <TextView
+                    style="@style/jintian_bujv"
+                    android:text="℃"
+                    android:textColor="@color/bai"
+                    android:textSize="48dp"
+                    android:layout_toEndOf="@id/txt_wd"
+                    android:layout_alignTop="@id/txt_wd"
+                    android:layout_marginTop="18dp" />
+
+                <!--        最高温度 最低温度-->
+                <LinearLayout
+                    android:id="@+id/wd_zgzd"
+                    style="@style/jintian_bujv"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@id/txt_wd"
+                    android:layout_marginTop="-12dp">
+                    <TextView
+                        android:id="@+id/txt_wd_zg"
+                        style="@style/jintian_bujv"
+                        android:text="29 ℃"
+                        android:textColor="@color/bai"
+                        android:textSize="18dp"/>
+                    <TextView
+                        style="@style/jintian_bujv"
+                        android:text=" / "
+                        android:textColor="@color/tmbai"
+                        android:textSize="18dp"/>
+                    <TextView
+                        android:id="@+id/txt_wd_zd"
+                        style="@style/jintian_bujv"
+                        android:text="16 ℃"
+                        android:textColor="@color/tmbai"
+                        android:textSize="18dp"/>
+                </LinearLayout>
+                <!--        天气  空气-->
+                <LinearLayout
+                    android:id="@+id/tq_tqkq"
+                    style="@style/jintian_bujv"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@id/wd_zgzd"
+                    android:layout_marginTop="4dp">
+                    <TextView
+                        android:id="@+id/txt_tq"
+                        style="@style/jintian_bujv"
+                        android:text="多云  "
+                        android:textColor="@color/bai"
+                        android:textSize="18dp"/>
+
+                    <TextView
+                        android:id="@+id/txt_kq"
+                        style="@style/jintian_bujv"
+                        android:text="空气良"
+                        android:textColor="@color/bai"
+                        android:textSize="18dp"/>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/notice"
+                    style="@style/jintian_bujv"
+                    android:text="阴晴之间，谨防紫外线侵扰"
+                    android:textColor="@color/bai"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@id/tq_tqkq"/>
+
+                <TextView
+                    android:id="@+id/updateTime"
+                    style="@style/jintian_bujv"
+                    android:text="上次更新时间：  13:46"
+                    android:textColor="@color/bai"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="8dp"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/tm"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"/>
+            </RelativeLayout>
+
+<!--七天天气情况-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:orientation="vertical">
+
+                <include layout="@layout/item_meitian" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/tm"
+                    android:layout_alignParentBottom="true" />
+            </RelativeLayout>
+            <ListView
+                android:id="@+id/lv_main"
+                android:layout_width="match_parent"
+                android:layout_height="388dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:divider="@color/tm"
+                android:dividerHeight="1px"
+                android:headerDividersEnabled="true"/>
+
+<!--15日天气情况-->
+            <Button
+                android:id="@+id/btn_ckdt"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="查看多天预报 >"
+                android:textColor="@color/bai"
+                android:background="#00000000"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/tm"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"/>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
