@@ -28,7 +28,7 @@
                 <!--        顶部-->
                 <TextView
                     android:id="@+id/day_txt_dz"
-                    style="@style/jintian_bujv"
+                    style="@style/layout_wrap"
                     android:text="梅河口"
                     android:textColor="@color/bai"
                     android:textStyle="bold"
@@ -45,7 +45,7 @@
                     android:layout_marginLeft="5dp" />
                 <TextView
                     android:id="@+id/day_txt_riqi"
-                    style="@style/jintian_bujv"
+                    style="@style/layout_wrap"
                     android:text="06月11日星期四"
                     android:textColor="@color/bai"
                     android:textSize="14dp"
@@ -62,13 +62,13 @@
                     android:layout_marginTop="48dp">
                     <TextView
                         android:id="@+id/day_txt_wd"
-                        style="@style/jintian_bujv"
+                        style="@style/layout_wrap"
                         android:text="27"
                         android:textSize="64dp"
 
                         android:textColor="@color/bai" />
                     <TextView
-                        style="@style/jintian_bujv"
+                        style="@style/layout_wrap"
                         android:text="℃"
                         android:textColor="@color/bai"
                         android:textSize="20dp"
@@ -100,24 +100,24 @@
                             android:layout_toEndOf="@id/day_img_tq"/>
                     </RelativeLayout>
                     <LinearLayout
-                        style="@style/jintian_bujv"
+                        style="@style/layout_wrap"
                         android:layout_alignLeft="@id/tq"
                         android:layout_below="@id/tq"
                         android:layout_alignParentBottom="true">
                         <TextView
                             android:id="@+id/day_txt_wd_zg"
-                            style="@style/jintian_bujv"
+                            style="@style/layout_wrap"
                             android:text="29 ℃"
                             android:textColor="@color/bai"
                             android:textSize="14dp"/>
                         <TextView
-                            style="@style/jintian_bujv"
+                            style="@style/layout_wrap"
                             android:text=" / "
                             android:textColor="@color/tmbai"
                             android:textSize="14dp"/>
                         <TextView
                             android:id="@+id/day_txt_wd_zd"
-                            style="@style/jintian_bujv"
+                            style="@style/layout_wrap"
                             android:text="16 ℃"
                             android:textColor="@color/tmbai"
                             android:textSize="14dp"/>
@@ -136,7 +136,7 @@
                     android:padding="2dp">
                     <TextView
                         android:id="@+id/day_txt_kqzl"
-                        style="@style/jintian_bujv"
+                        style="@style/layout_wrap"
                         android:text="空气质量：64  良"
                         android:textColor="@color/bai"
                         android:layout_marginLeft="5dp"/>
@@ -160,7 +160,7 @@
 
             <!--    风力风向-->
             <TextView
-                style="@style/jintian_bujv"
+                style="@style/layout_wrap"
                 android:text="风力风向"
                 android:textColor="@color/hei"
                 android:textSize="18dp"
@@ -176,7 +176,7 @@
                     android:layout_weight="1"
                     android:layout_marginTop="15dp">
                     <ImageView
-                        style="@style/jintian_bujv"
+                        style="@style/layout_wrap"
                         android:layout_gravity="center_vertical"
                         android:src="@drawable/fl"
                         android:layout_marginLeft="20dp"/>
@@ -191,14 +191,14 @@
                     android:gravity="center_vertical">
                     <TextView
                         android:id="@+id/day_txt_fx"
-                        style="@style/jintian_bujv"
+                        style="@style/layout_wrap"
                         android:text="风向：西南风"
                         android:layout_gravity="center_vertical"
                         android:textSize="16dp"
                         android:layout_marginLeft="15dp"/>
                     <TextView
                         android:id="@+id/day_txt_fl"
-                        style="@style/jintian_bujv"
+                        style="@style/layout_wrap"
                         android:text="风力：3级"
                         android:layout_gravity="center_vertical"
                         android:textSize="16dp"
@@ -209,7 +209,7 @@
 
             <!--    日出日落-->
             <TextView
-                style="@style/jintian_bujv"
+                style="@style/layout_wrap"
                 android:text="日出日落"
                 android:textColor="@color/hei"
                 android:textSize="18dp"
@@ -224,13 +224,13 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1">
                     <ImageView
-                        style="@style/jintian_bujv"
+                        style="@style/layout_wrap"
                         android:layout_gravity="center_vertical"
                         android:src="@drawable/sunrise"
                         android:layout_marginLeft="20dp"/>
                     <TextView
                         android:id="@+id/day_txt_sunrise"
-                        style="@style/jintian_bujv"
+                        style="@style/layout_wrap"
                         android:text="日出时间：3：25"
                         android:layout_gravity="center_vertical"
                         android:textSize="16dp"
@@ -242,13 +242,13 @@
                     android:layout_weight="1"
                     android:gravity="right">
                     <ImageView
-                        style="@style/jintian_bujv"
+                        style="@style/layout_wrap"
                         android:layout_gravity="center_vertical"
                         android:src="@drawable/sunset"
                         android:layout_marginRight="15dp"/>
                     <TextView
                         android:id="@+id/day_txt_sunset"
-                        style="@style/jintian_bujv"
+                        style="@style/layout_wrap"
                         android:text="日出时间：3：25"
                         android:layout_gravity="center_vertical"
                         android:textSize="16dp"
