@@ -5,7 +5,7 @@
     android:background="#00000000">
     <TextView
         android:id="@+id/item_txt_riqi"
-        style="@style/jintian_bujv"
+        style="@style/layout_wrap"
         android:text="6月9日昨天"
         android:textSize="16dp"
         android:layout_centerVertical="true"
@@ -20,23 +20,23 @@
         android:layout_centerInParent="true"/>
 
     <LinearLayout
-        style="@style/jintian_bujv"
+        style="@style/layout_wrap"
         android:layout_centerVertical="true"
         android:layout_alignParentRight="true">
         <TextView
             android:id="@+id/item_txt_wd_zg"
-            style="@style/jintian_bujv"
+            style="@style/layout_wrap"
             android:text="29 ℃"
             android:textColor="@color/bai"
             android:textSize="16dp"/>
         <TextView
-            style="@style/jintian_bujv"
+            style="@style/layout_wrap"
             android:text=" / "
             android:textColor="@color/tmbai"
             android:textSize="16dp"/>
         <TextView
             android:id="@+id/item_txt_wd_zd"
-            style="@style/jintian_bujv"
+            style="@style/layout_wrap"
             android:text="16 ℃"
             android:textColor="@color/tmbai"
             android:textSize="16dp"/>
