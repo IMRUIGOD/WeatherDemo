@@ -176,7 +176,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-        meau_imageBtn.setBackgroundResource(R.drawable.add);
+        meau_imageBtn.setBackgroundResource(R.drawable.add_home);
         meau_imageBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -9,11 +9,11 @@
         android:layout_height="50dp">
         <ImageButton
             android:id="@+id/meau_imgBtn_back"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:background="@drawable/left_back"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="15dp"/>
+            android:layout_marginLeft="15dp"
+            android:background="@drawable/left_back"/>
         <TextView
             android:id="@+id/meau_txt_title"
             android:layout_width="wrap_content"
@@ -24,6 +24,26 @@
             android:textColor="#000000"
             android:textSize="18dp"/>
 
+        <ImageButton
+            android:id="@+id/meau_imgBtn_add"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:visibility="invisible"
+            android:layout_toLeftOf="@id/meau_imgBtn_util"
+            android:background="@drawable/add"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"/>
+
+        <ImageButton
+            android:id="@+id/meau_imgBtn_util"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:background="@drawable/update"
+            android:layout_centerVertical="true"
+            android:visibility="invisible"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="20dp"
+            android:layout_alignParentRight="true"/>
     </RelativeLayout>
 
 </LinearLayout>
