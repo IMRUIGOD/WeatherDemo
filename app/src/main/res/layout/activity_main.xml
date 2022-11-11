@@ -29,7 +29,7 @@
                 <!--        地址-->
                 <TextView
                     android:id="@+id/txt_dz"
-                    style="@style/jintian_bujv"
+                    style="@style/layout_wrap"
                     android:text="梅河口"
                     android:textSize="18dp"
                     android:textColor="@color/bai"
@@ -47,7 +47,7 @@
                 <!--        温度-->
                 <TextView
                     android:id="@+id/txt_wd"
-                    style="@style/jintian_bujv"
+                    style="@style/layout_wrap"
                     android:text="27"
                     android:textSize="96dp"
                     android:layout_below="@id/txt_dz"
@@ -55,7 +55,7 @@
                     android:textColor="@color/bai"
                     android:layout_marginTop="-15dp"/>
                 <TextView
-                    style="@style/jintian_bujv"
+                    style="@style/layout_wrap"
                     android:text="℃"
                     android:textColor="@color/bai"
                     android:textSize="48dp"
@@ -66,24 +66,24 @@
                 <!--        最高温度 最低温度-->
                 <LinearLayout
                     android:id="@+id/wd_zgzd"
-                    style="@style/jintian_bujv"
+                    style="@style/layout_wrap"
                     android:layout_centerHorizontal="true"
                     android:layout_below="@id/txt_wd"
                     android:layout_marginTop="-12dp">
                     <TextView
                         android:id="@+id/txt_wd_zg"
-                        style="@style/jintian_bujv"
+                        style="@style/layout_wrap"
                         android:text="29 ℃"
                         android:textColor="@color/bai"
                         android:textSize="18dp"/>
                     <TextView
-                        style="@style/jintian_bujv"
+                        style="@style/layout_wrap"
                         android:text=" / "
                         android:textColor="@color/tmbai"
                         android:textSize="18dp"/>
                     <TextView
                         android:id="@+id/txt_wd_zd"
-                        style="@style/jintian_bujv"
+                        style="@style/layout_wrap"
                         android:text="16 ℃"
                         android:textColor="@color/tmbai"
                         android:textSize="18dp"/>
@@ -91,20 +91,20 @@
                 <!--        天气  空气-->
                 <LinearLayout
                     android:id="@+id/tq_tqkq"
-                    style="@style/jintian_bujv"
+                    style="@style/layout_wrap"
                     android:layout_centerHorizontal="true"
                     android:layout_below="@id/wd_zgzd"
                     android:layout_marginTop="4dp">
                     <TextView
                         android:id="@+id/txt_tq"
-                        style="@style/jintian_bujv"
+                        style="@style/layout_wrap"
                         android:text="多云  "
                         android:textColor="@color/bai"
                         android:textSize="18dp"/>
 
                     <TextView
                         android:id="@+id/txt_kq"
-                        style="@style/jintian_bujv"
+                        style="@style/layout_wrap"
                         android:text="空气良"
                         android:textColor="@color/bai"
                         android:textSize="18dp"/>
@@ -112,7 +112,7 @@
 
                 <TextView
                     android:id="@+id/notice"
-                    style="@style/jintian_bujv"
+                    style="@style/layout_wrap"
                     android:text="阴晴之间，谨防紫外线侵扰"
                     android:textColor="@color/bai"
                     android:layout_centerHorizontal="true"
@@ -120,7 +120,7 @@
 
                 <TextView
                     android:id="@+id/updateTime"
-                    style="@style/jintian_bujv"
+                    style="@style/layout_wrap"
                     android:text="上次更新时间：  13:46"
                     android:textColor="@color/bai"
                     android:layout_alignParentBottom="true"
