@@ -2,6 +2,7 @@ package com.IMRUIGOD.weatherdemo;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -35,9 +37,11 @@ import java.util.Map;
 public class MainActivity extends AppCompatActivity {
     //绑定组件
     @ViewInject(R.id.main) private LinearLayout main;
+    //顶部功能栏
+    @ViewInject(R.id.meau_txt_title) private TextView txt_city;
+    @ViewInject(R.id.meau_imgBtn_back) private ImageButton meau_imageBtn;
     //头部数据栏
-    @ViewInject(R.id.txt_dz) private TextView txt_city;
-    @ViewInject(R.id.txt_wd) private TextView txt_temp;
+    @ViewInject(R.id.main_txt_wd) private TextView txt_temp;
     @ViewInject(R.id.txt_wd_zg) private TextView txt_temp_max;
     @ViewInject(R.id.txt_wd_zd) private TextView txt_temp_min;
     @ViewInject(R.id.txt_tq) private TextView txt_weather;
@@ -63,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         x.view().inject(this);
+
         //判断白天黑天
         booleanDayOrNight();
 
@@ -100,6 +105,9 @@ public class MainActivity extends AppCompatActivity {
             //设置控件数据
             private void setViewInit() {
                 txt_city.setText(weather.getCityInfo().getCity());
+                txt_city.setTextColor(getColor(R.color.white));
+                txt_city.setTextSize(20);
+                txt_city.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
                 txt_temp.setText(weather.getData().getWendu());
                 txt_temp_max.setText(bu.getMath(weather.getData().getForecast().get(0).getHigh()) + " " + getText(R.string.temp));
                 txt_temp_min.setText(bu.getMath(weather.getData().getForecast().get(0).getLow()) + " " + getText(R.string.temp));
@@ -168,6 +176,15 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+        meau_imageBtn.setBackgroundResource(R.drawable.add);
+        meau_imageBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this,CityActivity.class);
+                MainActivity.this.startActivity(intent);
+            }
+        });
+
     }
 
     //设置ListView
@@ -223,5 +240,7 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
     }
+
+
 
 }

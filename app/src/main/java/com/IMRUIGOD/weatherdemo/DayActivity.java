@@ -23,8 +23,8 @@ import java.text.ParseException;
 @ContentView(R.layout.activity_day)
 public class DayActivity extends AppCompatActivity {
     //绑定导航栏组件
-    @ViewInject(R.id.imgBtn_back) private ImageButton imgBtn_back;
-    @ViewInject(R.id.txt_meau_title) private TextView title;
+    @ViewInject(R.id.meau_imgBtn_back) private ImageButton imgBtn_back;
+    @ViewInject(R.id.meau_txt_title) private TextView title;
     //绑定界面控件
     @ViewInject(R.id.day_txt_city) private TextView txt_city;
     @ViewInject(R.id.day_txt_temp) private TextView txt_temp;

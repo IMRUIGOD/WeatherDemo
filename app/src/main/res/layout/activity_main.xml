@@ -7,9 +7,17 @@
     tools:context=".MainActivity"
     android:fitsSystemWindows="true"
     android:orientation="vertical"
-    android:background="#ccc"
+    android:background="#CCC"
     android:id="@+id/main"
     android:scrollbars="none">
+<!--    顶部功能栏-->
+    <include layout="@layout/layout_meau"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:background="#86FFFFFF"/>
 <!--    滑动组件-->
     <ScrollView
         android:layout_width="match_parent"
@@ -25,43 +33,42 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
-                android:layout_marginTop="50dp"
-                >
+                android:layout_marginTop="40dp">
                 <!--        地址-->
-                <TextView
-                    android:id="@+id/txt_dz"
-                    style="@style/layout_wrap"
-                    android:text="梅河口"
-                    android:textSize="18dp"
-                    android:textColor="@color/bai"
-                    android:layout_marginRight="5dp"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="10dp"/>
+<!--                <TextView-->
+<!--                    android:id="@+id/txt_dz"-->
+<!--                    style="@style/layout_wrap"-->
+<!--                    android:text="梅河口"-->
+<!--                    android:textSize="18dp"-->
+<!--                    android:textColor="@color/white"-->
+<!--                    android:layout_marginRight="5dp"-->
+<!--                    android:layout_centerHorizontal="true"-->
+<!--                    android:layout_marginTop="10dp"/>-->
 
-                <ImageView
-                    android:layout_width="14dp"
-                    android:layout_height="18dp"
-                    android:layout_marginTop="2dp"
-                    android:background="@drawable/zbb"
-                    android:layout_toEndOf="@id/txt_dz"
-                    android:layout_alignTop="@id/txt_dz"/>
+<!--                <ImageView-->
+<!--                    android:layout_width="14dp"-->
+<!--                    android:layout_height="18dp"-->
+<!--                    android:layout_marginTop="2dp"-->
+<!--                    android:background="@drawable/zbb"-->
+<!--                    android:layout_toEndOf="@id/txt_dz"-->
+<!--                    android:layout_alignTop="@id/txt_dz"/>-->
                 <!--        温度-->
                 <TextView
-                    android:id="@+id/txt_wd"
+                    android:id="@+id/main_txt_wd"
                     style="@style/layout_wrap"
-                    android:text="27"
-                    android:textSize="96dp"
-                    android:layout_below="@id/txt_dz"
+                    android:text="10"
+                    android:textSize="108dp"
+                    android:textStyle="bold"
                     android:layout_centerHorizontal="true"
-                    android:textColor="@color/bai"
+                    android:textColor="@color/white"
                     android:layout_marginTop="-15dp"/>
                 <TextView
                     style="@style/layout_wrap"
                     android:text="℃"
-                    android:textColor="@color/bai"
-                    android:textSize="48dp"
-                    android:layout_toEndOf="@id/txt_wd"
-                    android:layout_alignTop="@id/txt_wd"
+                    android:textColor="@color/white"
+                    android:textSize="44dp"
+                    android:layout_toEndOf="@id/main_txt_wd"
+                    android:layout_alignTop="@id/main_txt_wd"
                     android:layout_marginTop="18dp" />
 
                 <!--        最高温度 最低温度-->
@@ -69,13 +76,13 @@
                     android:id="@+id/wd_zgzd"
                     style="@style/layout_wrap"
                     android:layout_centerHorizontal="true"
-                    android:layout_below="@id/txt_wd"
+                    android:layout_below="@id/main_txt_wd"
                     android:layout_marginTop="-12dp">
                     <TextView
                         android:id="@+id/txt_wd_zg"
                         style="@style/layout_wrap"
                         android:text="29 ℃"
-                        android:textColor="@color/bai"
+                        android:textColor="@color/white"
                         android:textSize="18dp"/>
                     <TextView
                         style="@style/layout_wrap"
@@ -100,14 +107,14 @@
                         android:id="@+id/txt_tq"
                         style="@style/layout_wrap"
                         android:text="多云  "
-                        android:textColor="@color/bai"
+                        android:textColor="@color/white"
                         android:textSize="18dp"/>
 
                     <TextView
                         android:id="@+id/txt_kq"
                         style="@style/layout_wrap"
                         android:text="空气良"
-                        android:textColor="@color/bai"
+                        android:textColor="@color/white"
                         android:textSize="18dp"/>
                 </LinearLayout>
 
@@ -115,7 +122,7 @@
                     android:id="@+id/notice"
                     style="@style/layout_wrap"
                     android:text="阴晴之间，谨防紫外线侵扰"
-                    android:textColor="@color/bai"
+                    android:textColor="@color/white"
                     android:layout_centerHorizontal="true"
                     android:layout_below="@id/tq_tqkq"/>
 
@@ -123,7 +130,7 @@
                     android:id="@+id/updateTime"
                     style="@style/layout_wrap"
                     android:text="上次更新时间：  13:46"
-                    android:textColor="@color/bai"
+                    android:textColor="@color/white"
                     android:layout_alignParentBottom="true"
                     android:layout_alignParentRight="true"
                     android:layout_marginRight="20dp"

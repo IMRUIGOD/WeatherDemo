@@ -26,8 +26,8 @@ import java.util.List;
 @ContentView(R.layout.activity_weather)
 public class WeatherActivity extends AppCompatActivity {
 
-    @ViewInject(R.id.imgBtn_back) private ImageButton imgBtn;
-    @ViewInject(R.id.txt_meau_title) private TextView title;
+    @ViewInject(R.id.meau_imgBtn_back) private ImageButton imgBtn;
+    @ViewInject(R.id.meau_txt_title) private TextView title;
 
     @ViewInject(R.id.weather_rv) private RecyclerView rv;
 
