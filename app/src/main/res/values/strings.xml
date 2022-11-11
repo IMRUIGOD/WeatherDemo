@@ -1,3 +1,20 @@
 <resources>
     <string name="app_name">WeatherDemo</string>
+    <string name="today">今天</string>
+    <string name="yesterday">昨天</string>
+    <string name="tomorrow">明天</string>
+    <string name="year">年</string>
+    <string name="month">月</string>
+    <string name="day">日</string>
+    <string name="temp">&#32;℃</string>
+    <string name="wind">风力风向</string>
+    <string name="fx">风向:</string>
+    <string name="fl">风速:</string>
+    <string name="sun">日出日落</string>
+    <string name="sunset">日落时间:</string>
+    <string name="sunrise">日出时间:</string>
+    <string name="PM25">PM 2.5:</string>
+    <string name="PM10">PM 10:</string>
+    <string name="weather">天气</string>
+    <string name="airSize">空气质量:</string>
 </resources>

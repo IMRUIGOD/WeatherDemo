@@ -4,15 +4,15 @@
     android:layout_height="55dp"
     android:background="#00000000">
     <TextView
-        android:id="@+id/item_txt_riqi"
+        android:id="@+id/item_meitian_text_date"
         style="@style/layout_wrap"
         android:text="6月9日昨天"
         android:textSize="16dp"
         android:layout_centerVertical="true"
-        android:textColor="@color/bai"/>
+        android:textColor="@color/white"/>
 
     <ImageView
-        android:id="@+id/item_img_tq"
+        android:id="@+id/item_meitian_img_weather"
         android:layout_width="wrap_content"
         android:layout_height="45dp"
         android:src="@drawable/clear_daytime"
@@ -24,10 +24,10 @@
         android:layout_centerVertical="true"
         android:layout_alignParentRight="true">
         <TextView
-            android:id="@+id/item_txt_wd_zg"
+            android:id="@+id/item_meitian_txt_temp_max"
             style="@style/layout_wrap"
             android:text="29 ℃"
-            android:textColor="@color/bai"
+            android:textColor="@color/white"
             android:textSize="16dp"/>
         <TextView
             style="@style/layout_wrap"
@@ -35,7 +35,7 @@
             android:textColor="@color/tmbai"
             android:textSize="16dp"/>
         <TextView
-            android:id="@+id/item_txt_wd_zd"
+            android:id="@+id/item_meitian_txt_temp_min"
             style="@style/layout_wrap"
             android:text="16 ℃"
             android:textColor="@color/tmbai"

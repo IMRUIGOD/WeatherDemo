@@ -36,21 +36,21 @@ public class MainActivity extends AppCompatActivity {
     //绑定组件
     @ViewInject(R.id.main) private LinearLayout main;
     //头部数据栏
-    @ViewInject(R.id.txt_dz) private TextView txt_dz;
-    @ViewInject(R.id.txt_wd) private TextView txt_wd;
-    @ViewInject(R.id.txt_wd_zg) private TextView txt_wd_zg;
-    @ViewInject(R.id.txt_wd_zd) private TextView txt_wd_zd;
-    @ViewInject(R.id.txt_tq) private TextView txt_tq;
-    @ViewInject(R.id.txt_kq) private TextView txt_kq;
+    @ViewInject(R.id.txt_dz) private TextView txt_city;
+    @ViewInject(R.id.txt_wd) private TextView txt_temp;
+    @ViewInject(R.id.txt_wd_zg) private TextView txt_temp_max;
+    @ViewInject(R.id.txt_wd_zd) private TextView txt_temp_min;
+    @ViewInject(R.id.txt_tq) private TextView txt_weather;
+    @ViewInject(R.id.txt_kq) private TextView txt_air;
     @ViewInject(R.id.notice) private TextView notice;
     @ViewInject(R.id.updateTime) private TextView updateTime;
     //中间天气栏
-    @ViewInject( R.id.item_txt_riqi) private TextView txt_riqi;
-    @ViewInject(R.id.item_img_tq) private ImageView img_tq;
-    @ViewInject(R.id.item_txt_wd_zg) private TextView wd_zg;
-    @ViewInject(R.id.item_txt_wd_zd) private TextView wd_zd;
+    @ViewInject( R.id.item_meitian_text_date) private TextView txt_date;
+    @ViewInject(R.id.item_meitian_img_weather) private ImageView img_weather;
+    @ViewInject(R.id.item_meitian_txt_temp_max) private TextView temp_max;
+    @ViewInject(R.id.item_meitian_txt_temp_min) private TextView temp_min;
     //尾部更多天气
-    @ViewInject(R.id.btn_ckdt) private Button btn_gd;
+    @ViewInject(R.id.btn_more) private Button btn_more;
 
     private List list;
     private ByteUitl bu = new ByteUitl();
@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         x.view().inject(this);
         //判断白天黑天
-        pdDay();
+        booleanDayOrNight();
 
         //将访问的网页放到RequestParams中
         RequestParams params = new RequestParams(url);
@@ -87,10 +87,10 @@ public class MainActivity extends AppCompatActivity {
                 addData(json);
 
                 //跳转15天天气
-                btn_gd.setOnClickListener(new View.OnClickListener() {
+                btn_more.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent = new Intent(MainActivity.this, WeatherView.class);
+                        Intent intent = new Intent(MainActivity.this, WeatherActivity.class);
                         intent.putExtra("Weather", json);
                         MainActivity.this.startActivity(intent);
                     }
@@ -99,19 +99,19 @@ public class MainActivity extends AppCompatActivity {
 
             //设置控件数据
             private void setViewInit() {
-                txt_dz.setText(weather.getCityInfo().getCity());
-                txt_wd.setText(weather.getData().getWendu());
-                txt_wd_zg.setText(bu.getMath(weather.getData().getForecast().get(0).getHigh())+" ℃");
-                txt_wd_zd.setText(bu.getMath(weather.getData().getForecast().get(0).getLow())+" ℃");
-                txt_tq.setText(weather.getData().getForecast().get(0).getType()+"  ");
-                txt_kq.setText("空气 "+ weather.getData().getQuality());
+                txt_city.setText(weather.getCityInfo().getCity());
+                txt_temp.setText(weather.getData().getWendu());
+                txt_temp_max.setText(bu.getMath(weather.getData().getForecast().get(0).getHigh()) + " " + getText(R.string.temp));
+                txt_temp_min.setText(bu.getMath(weather.getData().getForecast().get(0).getLow()) + " " + getText(R.string.temp));
+                txt_weather.setText(weather.getData().getForecast().get(0).getType()+"  ");
+                txt_air.setText("空气 "+ weather.getData().getQuality());
                 notice.setText(weather.getData().getForecast().get(0).getNotice());
                 updateTime.setText("上次更新时间：  "+ weather.getCityInfo().getUpdateTime());
-                wd_zd.setText(bu.getMath(weather.getData().getYesterday().getLow())+" ℃");
-                wd_zg.setText(bu.getMath(weather.getData().getYesterday().getHigh())+" ℃");
+                temp_min.setText(bu.getMath(weather.getData().getYesterday().getLow()) + " " + getText(R.string.temp));
+                temp_max.setText(bu.getMath(weather.getData().getYesterday().getHigh()) + " " + getText(R.string.temp));
                 try {
-                    txt_riqi.setText(bu.setriqi(weather.getData().getYesterday().getYmd(),1)+"昨天");
-                    img_tq.setImageResource(bu.setWeatherImg(weather.getData().getYesterday()));
+                    txt_date.setText(bu.setDate(weather.getData().getYesterday().getYmd(),1)+getText(R.string.yesterday));
+                    img_weather.setImageResource(bu.setWeatherImg(weather.getData().getYesterday()));
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
@@ -126,19 +126,19 @@ public class MainActivity extends AppCompatActivity {
                         map1 = new HashMap();
                         switch (i){
                             case 0:
-                                map1.put("ymd",bu.setriqi(weather.getData().getForecast().get(i).getYmd(),1)+"今天");
+                                map1.put("ymd",bu.setDate(weather.getData().getForecast().get(i).getYmd(),1) + getText(R.string.today));
                                 break;
                             case 1:
-                                map1.put("ymd",bu.setriqi(weather.getData().getForecast().get(i).getYmd(),1)+"明天");
+                                map1.put("ymd",bu.setDate(weather.getData().getForecast().get(i).getYmd(),1) + getText(R.string.tomorrow));
                                 break;
                             default:
-                                map1.put("ymd",bu.setriqi(weather.getData().getForecast().get(i).getYmd(),1)+ weather.getData().getForecast().get(i).getWeek());
+                                map1.put("ymd",bu.setDate(weather.getData().getForecast().get(i).getYmd(),1)+ weather.getData().getForecast().get(i).getWeek());
                                 break;
                         }
 
                         map1.put("img",bu.setWeatherImg(weather.getData().getForecast().get(i)));
-                        map1.put("zg",bu.getMath(weather.getData().getForecast().get(i).getHigh())+" ℃");
-                        map1.put("zd",bu.getMath(weather.getData().getForecast().get(i).getLow())+" ℃");
+                        map1.put("max",bu.getMath(weather.getData().getForecast().get(i).getHigh()) + " " + getText(R.string.temp));
+                        map1.put("min",bu.getMath(weather.getData().getForecast().get(i).getLow()) + " " + getText(R.string.temp));
                         list.add(map1);
                     }
                     //将装填好的数据传入listview中
@@ -176,8 +176,8 @@ public class MainActivity extends AppCompatActivity {
         adapter = new SimpleAdapter(
                 this,
                 list,R.layout.item_meitian,
-                new String[]{"ymd", "img", "zg", "zd"},
-                new int[]{R.id.item_txt_riqi,R.id.item_img_tq,R.id.item_txt_wd_zg,R.id.item_txt_wd_zd});
+                new String[]{"ymd", "img", "max", "min"},
+                new int[]{R.id.item_more_txt_date,R.id.item_meitian_img_weather,R.id.item_meitian_txt_temp_max,R.id.item_meitian_txt_temp_min});
         lv.setAdapter(adapter);
 
         //每一个item的单击事件
@@ -195,7 +195,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //判断白天黑天
-    private void pdDay() {
+    private void booleanDayOrNight() {
         //拿到window
         Window window = getWindow();
         //需要设置这个 flag 才能调用 setStatusBarColor 来设置状态栏颜色

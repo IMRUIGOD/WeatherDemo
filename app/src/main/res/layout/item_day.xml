@@ -6,27 +6,27 @@
     android:gravity="center_horizontal">
 
     <TextView
-        android:id="@+id/item_txt_week"
+        android:id="@+id/item_day_txt_week"
         style="@style/layout_wrap"
         android:text="星期一"
         android:layout_marginTop="15dp"
         android:textSize="14dp" />
 
     <TextView
-        android:id="@+id/item_txt_riqi1"
+        android:id="@+id/item_day_txt_date"
         style="@style/layout_wrap"
         android:text="6/12"
         android:textSize="14dp" />
 
     <ImageView
-        android:id="@+id/item_img_tq1"
+        android:id="@+id/item_day_img_weather"
         android:layout_width="35dp"
         android:layout_height="35dp"
         android:layout_marginTop="5dp"
         android:src="@drawable/clear_daytime"/>
 
     <TextView
-        android:id="@+id/item_txt_tq1"
+        android:id="@+id/item_day_txt_weather"
         style="@style/layout_wrap"
         android:text="晴"
         android:layout_marginTop="5dp"
@@ -35,7 +35,7 @@
 
 
     <com.IMRUIGOD.weatherdemo.TemperatureView
-        android:id="@+id/temp_view"
+        android:id="@+id/item_day_temp_view"
         android:layout_width="match_parent"
         android:layout_height="170dp"/>
 
@@ -47,12 +47,12 @@
         android:layout_marginTop="10dp"
         android:orientation="horizontal">
         <TextView
-            android:id="@+id/item_txt_kqzl"
+            android:id="@+id/item_day_txt_airSize"
             style="@style/layout_wrap"
             android:text="良 "
             android:layout_marginLeft="5dp"/>
         <View
-            android:id="@+id/item_view_colordian"
+            android:id="@+id/item_day_view_colordian"
             android:layout_width="8dp"
             android:layout_height="8dp"
             android:background="@drawable/circle_yellow"
@@ -62,14 +62,14 @@
             />
     </LinearLayout>
     <TextView
-        android:id="@+id/item_txt_fx"
+        android:id="@+id/item_day_txt_wind_orientation"
         style="@style/layout_wrap"
         android:text="西南风"
         android:layout_marginTop="10dp"
         android:textSize="14dp" />
 
     <TextView
-        android:id="@+id/item_txt_fl"
+        android:id="@+id/item_day_txt_wind_speed"
         style="@style/layout_wrap"
         android:text="3级"
         android:textSize="12dp" />

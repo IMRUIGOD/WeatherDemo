@@ -96,13 +96,13 @@ public class Day_Adapter extends RecyclerView.Adapter<Day_Adapter.DA> {
         //判断输出昨天、今天、明天、星期几
         switch (i){
             case 0:
-                da.txt_week.setText("昨天");
+                da.txt_week.setText(R.string.yesterday);
                 break;
             case 1:
-                da.txt_week.setText("今天");
+                da.txt_week.setText(R.string.today);
                 break;
             case 2:
-                da.txt_week.setText("明天");
+                da.txt_week.setText(R.string.tomorrow);
                 break;
             default:
                 da.txt_week.setText(list.get(i).getWeek());
@@ -110,17 +110,17 @@ public class Day_Adapter extends RecyclerView.Adapter<Day_Adapter.DA> {
         }
         //设置日期  格式为6/11
         try {
-            da.txt_riqi1.setText(bu.setriqi(list.get(i).getYmd(),2));
-            da.img_tq1.setImageResource(bu.setWeatherImg(list.get(i)));
+            da.txt_date.setText(bu.setDate(list.get(i).getYmd(),2));
+            da.img_weather.setImageResource(bu.setWeatherImg(list.get(i)));
         } catch (ParseException e) {
             e.printStackTrace();
         }
 
-        da.txt_tq1.setText(list.get(i).getType());
-        da.txt_kqzl.setText(bu.setAirSize(list.get(i).getAqi())+" ");
+        da.txt_weather.setText(list.get(i).getType());
+        da.txt_airSize.setText(bu.setAirSize(list.get(i).getAqi())+" ");
         da.view_colordian.setBackground(mContext.getResources().getDrawable(bu.setKQ(list.get(i).getAqi())));
-        da.txt_fl.setText(list.get(i).getFl());
-        da.txt_fx.setText(list.get(i).getFx());
+        da.txt_wind_speed.setText(list.get(i).getFl());
+        da.txt_wind_orientation.setText(list.get(i).getFx());
     }
 
     //输出的长度
@@ -135,25 +135,25 @@ public class Day_Adapter extends RecyclerView.Adapter<Day_Adapter.DA> {
 
         private TemperatureView mTemperatureView;
         private TextView txt_week;
-        private TextView txt_riqi1;
-        private TextView txt_fl;
-        private TextView txt_fx;
-        private TextView txt_kqzl;
-        private TextView txt_tq1;
-        private ImageView img_tq1;
+        private TextView txt_date;
+        private TextView txt_wind_speed;
+        private TextView txt_wind_orientation;
+        private TextView txt_airSize;
+        private TextView txt_weather;
+        private ImageView img_weather;
         private View view_colordian;
 
         public DA(@NonNull View itemView) {
             super(itemView);
-            mTemperatureView = itemView.findViewById(R.id.temp_view);
-            txt_week = itemView.findViewById(R.id.item_txt_week);
-            txt_riqi1 = itemView.findViewById(R.id.item_txt_riqi1);
-            txt_fl = itemView.findViewById(R.id.item_txt_fl);
-            txt_fx = itemView.findViewById(R.id.item_txt_fx);
-            txt_tq1 = itemView.findViewById(R.id.item_txt_tq1);
-            txt_kqzl = itemView.findViewById(R.id.item_txt_kqzl);
-            img_tq1 = itemView.findViewById(R.id.item_img_tq1);
-            view_colordian = itemView.findViewById(R.id.item_view_colordian);
+            mTemperatureView = itemView.findViewById(R.id.item_day_temp_view);
+            txt_week = itemView.findViewById(R.id.item_day_txt_week);
+            txt_date = itemView.findViewById(R.id.item_day_txt_date);
+            txt_wind_speed = itemView.findViewById(R.id.item_day_txt_wind_speed);
+            txt_wind_orientation = itemView.findViewById(R.id.item_day_txt_wind_orientation);
+            txt_weather = itemView.findViewById(R.id.item_day_txt_weather);
+            txt_airSize = itemView.findViewById(R.id.item_day_txt_airSize);
+            img_weather = itemView.findViewById(R.id.item_day_img_weather);
+            view_colordian = itemView.findViewById(R.id.item_day_view_colordian);
             mTemperatureView.setMinValue(minValue);
             mTemperatureView.setMaxValue(maxValue);
         }

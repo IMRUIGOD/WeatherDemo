@@ -27,10 +27,10 @@
 
                 <!--        顶部-->
                 <TextView
-                    android:id="@+id/day_txt_dz"
+                    android:id="@+id/day_txt_city"
                     style="@style/layout_wrap"
                     android:text="梅河口"
-                    android:textColor="@color/bai"
+                    android:textColor="@color/white"
                     android:textStyle="bold"
                     android:textSize="18dp"
                     android:layout_marginTop="20dp"
@@ -41,16 +41,16 @@
                     android:layout_height="18dp"
                     android:layout_marginTop="23dp"
                     android:background="@drawable/zbb"
-                    android:layout_toEndOf="@id/day_txt_dz"
+                    android:layout_toEndOf="@id/day_txt_city"
                     android:layout_marginLeft="5dp" />
                 <TextView
-                    android:id="@+id/day_txt_riqi"
+                    android:id="@+id/day_txt_date"
                     style="@style/layout_wrap"
                     android:text="06月11日星期四"
-                    android:textColor="@color/bai"
+                    android:textColor="@color/white"
                     android:textSize="14dp"
                     android:layout_alignParentRight="true"
-                    android:layout_alignBottom="@id/day_txt_dz"
+                    android:layout_alignBottom="@id/day_txt_city"
                     android:layout_marginRight="20dp"/>
 
                 <!--        中间-->
@@ -61,54 +61,53 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="48dp">
                     <TextView
-                        android:id="@+id/day_txt_wd"
+                        android:id="@+id/day_txt_temp"
                         style="@style/layout_wrap"
                         android:text="27"
                         android:textSize="64dp"
-
-                        android:textColor="@color/bai" />
+                        android:textColor="@color/white" />
                     <TextView
                         style="@style/layout_wrap"
-                        android:text="℃"
-                        android:textColor="@color/bai"
+                        android:text="@string/temp"
+                        android:textColor="@color/white"
                         android:textSize="20dp"
-                        android:layout_toEndOf="@id/day_txt_wd"
-                        android:layout_alignTop="@id/day_txt_wd"
+                        android:layout_toEndOf="@id/day_txt_temp"
+                        android:layout_alignTop="@id/day_txt_temp"
                         android:layout_marginTop="24dp"/>
                     <RelativeLayout
-                        android:id="@+id/tq"
+                        android:id="@+id/RL_weather"
                         android:layout_width="80dp"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
-                        android:layout_alignTop="@id/day_txt_wd"
+                        android:layout_alignTop="@id/day_txt_temp"
                         android:orientation="horizontal"
                         android:layout_marginTop="15dp">
                         <ImageView
-                            android:id="@+id/day_img_tq"
+                            android:id="@+id/day_img_weather"
                             android:layout_width="40dp"
                             android:layout_height="40dp"
                             android:src="@drawable/clear_daytime"
                             android:padding="8dp"
                             android:layout_centerVertical="true" />
                         <TextView
-                            android:id="@+id/day_txt_tq"
+                            android:id="@+id/day_txt_weather"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="晴"
-                            android:textColor="@color/bai"
+                            android:textColor="@color/white"
                             android:layout_centerVertical="true"
-                            android:layout_toEndOf="@id/day_img_tq"/>
+                            android:layout_toEndOf="@id/day_img_weather"/>
                     </RelativeLayout>
                     <LinearLayout
                         style="@style/layout_wrap"
-                        android:layout_alignLeft="@id/tq"
-                        android:layout_below="@id/tq"
+                        android:layout_alignLeft="@id/RL_weather"
+                        android:layout_below="@id/RL_weather"
                         android:layout_alignParentBottom="true">
                         <TextView
-                            android:id="@+id/day_txt_wd_zg"
+                            android:id="@+id/day_txt_temp_max"
                             style="@style/layout_wrap"
                             android:text="29 ℃"
-                            android:textColor="@color/bai"
+                            android:textColor="@color/white"
                             android:textSize="14dp"/>
                         <TextView
                             style="@style/layout_wrap"
@@ -116,7 +115,7 @@
                             android:textColor="@color/tmbai"
                             android:textSize="14dp"/>
                         <TextView
-                            android:id="@+id/day_txt_wd_zd"
+                            android:id="@+id/day_txt_temp_min"
                             style="@style/layout_wrap"
                             android:text="16 ℃"
                             android:textColor="@color/tmbai"
@@ -135,10 +134,10 @@
                     android:layout_marginBottom="20dp"
                     android:padding="2dp">
                     <TextView
-                        android:id="@+id/day_txt_kqzl"
+                        android:id="@+id/day_txt_airSize"
                         style="@style/layout_wrap"
                         android:text="空气质量：64  良"
-                        android:textColor="@color/bai"
+                        android:textColor="@color/white"
                         android:layout_marginLeft="5dp"/>
                     <View
                         android:id="@+id/day_view_colordian"
@@ -155,17 +154,18 @@
             <!--    空气指数-->
             <include
                 android:visibility="gone"
-                android:id="@+id/inclue_kq"
-                layout="@layout/layout_kq"/>
+                android:id="@+id/day_inclue_air"
+                layout="@layout/layout_air"/>
 
             <!--    风力风向-->
             <TextView
                 style="@style/layout_wrap"
-                android:text="风力风向"
-                android:textColor="@color/hei"
-                android:textSize="18dp"
                 android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp"/>
+                android:layout_marginTop="20dp"
+                android:text="@string/wind"
+                android:textColor="@color/hei"
+                android:textSize="18dp" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
@@ -190,14 +190,14 @@
                     android:orientation="vertical"
                     android:gravity="center_vertical">
                     <TextView
-                        android:id="@+id/day_txt_fx"
+                        android:id="@+id/day_txt_wind_orientation"
                         style="@style/layout_wrap"
                         android:text="风向：西南风"
                         android:layout_gravity="center_vertical"
                         android:textSize="16dp"
                         android:layout_marginLeft="15dp"/>
                     <TextView
-                        android:id="@+id/day_txt_fl"
+                        android:id="@+id/day_txt_wind_speed"
                         style="@style/layout_wrap"
                         android:text="风力：3级"
                         android:layout_gravity="center_vertical"
@@ -210,7 +210,7 @@
             <!--    日出日落-->
             <TextView
                 style="@style/layout_wrap"
-                android:text="日出日落"
+                android:text="@string/sun"
                 android:textColor="@color/hei"
                 android:textSize="18dp"
                 android:layout_marginLeft="20dp"

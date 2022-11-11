@@ -20,11 +20,11 @@ public class TemperatureView extends View {
     private int currentValue;
     private int currentValue1;
     //上一个温度
-    private int lastValue_zg;
-    private int lastValue_zd;
+    private int lastValue_max;
+    private int lastValue_min;
     //下一个温度
-    private int nextValue_zg;
-    private int nextValue_zd;
+    private int nextValue_max;
+    private int nextValue_min;
     //画笔
     private Paint mPaint;
     private Paint mPaint1;
@@ -88,18 +88,18 @@ public class TemperatureView extends View {
 
     //设置之前温度点的值
     public void setZGLastValue(int lastValue_zg){
-        this.lastValue_zg = lastValue_zg;
+        this.lastValue_max = lastValue_zg;
     }
     public void setZDLastValue(int lastValue_zd){
-        this.lastValue_zd = lastValue_zd;
+        this.lastValue_min = lastValue_zd;
     }
 
     //设置下一个温度点的值
     public void setZGNextValue(int nextValue_zg){
-        this.nextValue_zg = nextValue_zg;
+        this.nextValue_max = nextValue_zg;
     }
     public void setZDNextValue(int nextValue_zd){
-        this.nextValue_zd = nextValue_zd;
+        this.nextValue_min = nextValue_zd;
     }
 
     @Override
@@ -184,8 +184,8 @@ public class TemperatureView extends View {
 
         //判断是否画左线段（第一个View不用，其他全要）
         if(isDrawLeftLine){
-            float middleValue = currentValue - (currentValue - lastValue_zg) / 2f;
-            float middleValue1 = currentValue1 - (currentValue1 - lastValue_zd) / 2f;
+            float middleValue = currentValue - (currentValue - lastValue_max) / 2f;
+            float middleValue1 = currentValue1 - (currentValue1 - lastValue_min) / 2f;
 
             float middleY = mMiddleValue + (int) ((pointBottomY-pointTopY) * 1f / (maxValue - minValue) * ((maxValue + minValue) / 2 - middleValue));
             float middleY1 = mMiddleValue + (int) ((pointBottomY-pointTopY) * 1f / (maxValue - minValue) * ((maxValue + minValue) / 2 - middleValue1));
@@ -196,11 +196,11 @@ public class TemperatureView extends View {
 
         //判断是否画右线段（最后View不用，其他全要）
         if(isDrawRightLine){
-            float middleValue = currentValue - (currentValue - nextValue_zg) / 2f;
+            float middleValue = currentValue - (currentValue - nextValue_max) / 2f;
             float middleY = mMiddleValue + (int) ((pointBottomY-pointTopY) * 1f / (maxValue - minValue) * ((maxValue + minValue) / 2 - middleValue));
             canvas.drawLine(pointX, pointY, viewWidth, middleY, mPaint);
 
-            float middleValue1 = currentValue1 - (currentValue1 - nextValue_zd) / 2f;
+            float middleValue1 = currentValue1 - (currentValue1 - nextValue_min) / 2f;
             float middleY1 = mMiddleValue + (int) ((pointBottomY-pointTopY) * 1f / (maxValue - minValue) * ((maxValue + minValue) / 2 - middleValue1));
             canvas.drawLine(pointX, pointY1, viewWidth, middleY1, mPaint1);
         }

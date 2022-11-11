@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
+    android:fitsSystemWindows="true"
     android:orientation="vertical"
     android:background="#ccc"
     android:id="@+id/main"
@@ -165,11 +166,11 @@
 
 <!--15日天气情况-->
             <Button
-                android:id="@+id/btn_ckdt"
+                android:id="@+id/btn_more"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:text="查看多天预报 >"
-                android:textColor="@color/bai"
+                android:textColor="@color/white"
                 android:background="#00000000"/>
             <View
                 android:layout_width="match_parent"
