@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".WeatherView"
+    tools:context=".WeatherActivity"
+    android:fitsSystemWindows="true"
     android:orientation="vertical">
 
     <include layout="@layout/layout_meau"/>
@@ -13,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="370dp">
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv"
+            android:id="@+id/weather_rv"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </FrameLayout>

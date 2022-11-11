@@ -23,26 +23,26 @@ import java.text.ParseException;
 @ContentView(R.layout.activity_day)
 public class DayActivity extends AppCompatActivity {
     //绑定导航栏组件
-    @ViewInject(R.id.imgbtn_fh) private ImageButton imgbtn;
+    @ViewInject(R.id.imgBtn_back) private ImageButton imgBtn_back;
     @ViewInject(R.id.txt_meau_title) private TextView title;
     //绑定界面控件
-    @ViewInject(R.id.day_txt_dz) private TextView txt_dz;
-    @ViewInject(R.id.day_txt_wd) private TextView txt_wd;
-    @ViewInject(R.id.day_txt_wd_zg) private TextView txt_wd_zg;
-    @ViewInject(R.id.day_txt_wd_zd) private TextView txt_wd_zd;
-    @ViewInject(R.id.day_txt_tq) private TextView txt_tq;
-    @ViewInject(R.id.day_txt_kqzl) private TextView txt_kq;
-    @ViewInject(R.id.day_txt_riqi) private TextView txt_riqi;
-    @ViewInject(R.id.day_img_tq) private ImageView img_tq;
+    @ViewInject(R.id.day_txt_city) private TextView txt_city;
+    @ViewInject(R.id.day_txt_temp) private TextView txt_temp;
+    @ViewInject(R.id.day_txt_temp_max) private TextView txt_temp_max;
+    @ViewInject(R.id.day_txt_temp_min) private TextView txt_temp_min;
+    @ViewInject(R.id.day_txt_weather) private TextView txt_weather;
+    @ViewInject(R.id.day_txt_airSize) private TextView txt_air;
+    @ViewInject(R.id.day_txt_date) private TextView txt_date;
+    @ViewInject(R.id.day_img_weather) private ImageView img_weather;
     @ViewInject(R.id.day_view_colordian) private View view_colordian;
 
-    @ViewInject(R.id.day_txt_fl) private TextView txt_fl;
-    @ViewInject(R.id.day_txt_fx) private TextView txt_fx;
+    @ViewInject(R.id.day_txt_wind_speed) private TextView txt_wind_speed;
+    @ViewInject(R.id.day_txt_wind_orientation) private TextView txt_wind_orientation;
     @ViewInject(R.id.day_txt_sunrise) private TextView txt_sunrise;
     @ViewInject(R.id.day_txt_sunset) private TextView txt_sunset;
 
     //绑定单独组件
-    @ViewInject(R.id.inclue_kq) private View inclue_kq;
+    @ViewInject(R.id.day_inclue_air) private View inclue_air;
     @ViewInject(R.id.day_txt_pm2_5) private TextView txt_pm2_5;
     @ViewInject(R.id.day_txt_pm10) private TextView txt_pm10;
 
@@ -94,21 +94,21 @@ public class DayActivity extends AppCompatActivity {
         if (pos == 0){
             //如果为今天
             //显示空气组件
-            inclue_kq.setVisibility(View.VISIBLE);
-            txt_wd.setText(weather.getData().getWendu());
-            title.setText(weather.getCityInfo().getCity()+"天气");
+            inclue_air.setVisibility(View.VISIBLE);
+            txt_temp.setText(weather.getData().getWendu());
+            title.setText(weather.getCityInfo().getCity() + R.string.weather);
             //往组件里传数据
-            txt_pm2_5.setText("PM 2.5: "+weather.getData().getPm25());
-            txt_pm10.setText("PM 10: "+weather.getData().getPm10());
+            txt_pm2_5.setText(getText(R.string.PM25).toString() + " " + weather.getData().getPm25());
+            txt_pm10.setText(getText(R.string.PM10).toString() + " " + weather.getData().getPm10());
 
         }else{
             //不为今天
             //不显示控件
-            title.setText(weather.getCityInfo().getCity()+"单日预报详情");
-            txt_wd.setText(bu.getMath(weather.getData().getForecast().get(pos).getHigh())+"");
+            title.setText(weather.getCityInfo().getCity() + "单日预报详情");
+            txt_temp.setText(bu.getMath(weather.getData().getForecast().get(pos).getHigh()).toString());
         }
         //设置返回按钮
-        imgbtn.setOnClickListener(new View.OnClickListener() {
+        imgBtn_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(DayActivity.this,MainActivity.class);
@@ -117,24 +117,24 @@ public class DayActivity extends AppCompatActivity {
         });
 
 
-        txt_dz.setText(weather.getCityInfo().getCity());
+        txt_city.setText(weather.getCityInfo().getCity());
 
-        txt_wd_zg.setText(bu.getMath(weather.getData().getForecast().get(pos).getHigh())+" ℃");
-        txt_wd_zd.setText(bu.getMath(weather.getData().getForecast().get(pos).getLow())+" ℃");
+        txt_temp_max.setText(bu.getMath(weather.getData().getForecast().get(pos).getHigh()) + " " + getText(R.string.temp));
+        txt_temp_min.setText(bu.getMath(weather.getData().getForecast().get(pos).getLow()) + " " + getText(R.string.temp));
 
         try {
-            img_tq.setImageResource(bu.setWeatherImg(weather.getData().getForecast().get(pos)));
-            txt_riqi.setText(bu.setriqi(weather.getData().getForecast().get(pos).getYmd(),1)+ weather.getData().getForecast().get(pos).getWeek());
+            img_weather.setImageResource(bu.setWeatherImg(weather.getData().getForecast().get(pos)));
+            txt_date.setText(bu.setDate(weather.getData().getForecast().get(pos).getYmd(),1)+ weather.getData().getForecast().get(pos).getWeek());
         } catch (ParseException e) {
             e.printStackTrace();
         }
         int aqi = weather.getData().getForecast().get(pos).getAqi();
-        txt_kq.setText("空气质量："+aqi+" "+bu.setAirSize(aqi)+" ");
+        txt_air.setText(getText(R.string.airSize) + " " + aqi + " " + bu.setAirSize(aqi)+" ");
         view_colordian.setBackground(getResources().getDrawable(bu.setKQ(aqi)));
-        txt_tq.setText(weather.getData().getForecast().get(pos).getType());
-        txt_fl.setText("风力："+weather.getData().getForecast().get(pos).getFl());
-        txt_fx.setText("风向："+weather.getData().getForecast().get(pos).getFx());
-        txt_sunrise.setText("日出时间："+weather.getData().getForecast().get(pos).getSunrise());
-        txt_sunset.setText("日落时间："+weather.getData().getForecast().get(pos).getSunset());
+        txt_weather.setText(weather.getData().getForecast().get(pos).getType());
+        txt_wind_speed.setText(getText(R.string.fl) + weather.getData().getForecast().get(pos).getFl());
+        txt_wind_orientation.setText(getText(R.string.fx) + weather.getData().getForecast().get(pos).getFx());
+        txt_sunrise.setText(getText(R.string.sunrise) + weather.getData().getForecast().get(pos).getSunrise());
+        txt_sunset.setText(getText(R.string.sunset) + weather.getData().getForecast().get(pos).getSunset());
     }
 }

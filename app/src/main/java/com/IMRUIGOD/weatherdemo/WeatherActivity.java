@@ -3,6 +3,7 @@ package com.IMRUIGOD.weatherdemo;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -22,20 +23,20 @@ import org.xutils.x;
 import java.util.ArrayList;
 import java.util.List;
 
-@ContentView(R.layout.activity_weather_view)
-public class WeatherView extends AppCompatActivity {
+@ContentView(R.layout.activity_weather)
+public class WeatherActivity extends AppCompatActivity {
 
-    @ViewInject(R.id.imgbtn_fh) private ImageButton imgbtn;
+    @ViewInject(R.id.imgBtn_back) private ImageButton imgBtn;
     @ViewInject(R.id.txt_meau_title) private TextView title;
 
-    @ViewInject(R.id.rv) private RecyclerView rv;
+    @ViewInject(R.id.weather_rv) private RecyclerView rv;
 
     private List<Weather.DataBean.DayBean> list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_weather_view);
+        setContentView(R.layout.activity_weather);
         x.view().inject(this);
 
         //设置状态栏颜色
@@ -44,7 +45,7 @@ public class WeatherView extends AppCompatActivity {
         //传输的数据取出
         Intent intent = this.getIntent();
         String json = intent.getStringExtra("Weather");
-        System.out.println(json);
+        Log.i("json" , json);
         Weather weather = JSON.parseObject(json,Weather.class);
         //创建装载天气的List
         list = new ArrayList<>();
@@ -65,11 +66,11 @@ public class WeatherView extends AppCompatActivity {
 
         //设置导航栏标题和返回键
         title.setText(weather.getCityInfo().getCity()+"15日预报");
-        imgbtn.setOnClickListener(new View.OnClickListener() {
+        imgBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(WeatherView.this,MainActivity.class);
-                WeatherView.this.startActivity(intent);
+                Intent intent = new Intent(WeatherActivity.this,MainActivity.class);
+                WeatherActivity.this.startActivity(intent);
             }
         });
     }

@@ -12,15 +12,15 @@ import java.util.Date;
 public class ByteUitl {
     //取数字         将温度中的数字取出加温度符号 列如：26℃
     public Integer getMath(String str) {
-        String str2 = "";
+        String temp = "";
         if (str != null && !"".equals(str)) {
             for (int i = 0; i < str.length(); i++) {
                 if (str.charAt(i) >= 48 && str.charAt(i) <= 57) {
-                    str2 += str.charAt(i);
+                    temp += str.charAt(i);
                 }
             }
         }
-        return Integer.parseInt(str2);
+        return Integer.parseInt(temp);
     }
 
     //判断白天黑夜
@@ -39,7 +39,7 @@ public class ByteUitl {
     }
 
     //转换日期格式       将日期转换 例如：06月11日  或者  06/11
-    public String setriqi(String riqi,int i) throws ParseException {
+    public String setDate(String riqi, int i) throws ParseException {
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
         Date ymd = df.parse(riqi);
         Calendar cal = Calendar.getInstance();
